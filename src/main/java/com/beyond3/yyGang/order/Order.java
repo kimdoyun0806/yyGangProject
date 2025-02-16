@@ -1,6 +1,5 @@
 package com.beyond3.yyGang.order;
 
-import com.beyond3.yyGang.OrderOption;
 import com.beyond3.yyGang.pay.Payment;
 import com.beyond3.yyGang.user.Users;
 import jakarta.persistence.Column;

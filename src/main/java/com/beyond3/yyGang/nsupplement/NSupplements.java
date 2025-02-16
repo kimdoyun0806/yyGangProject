@@ -1,8 +1,8 @@
 package com.beyond3.yyGang.nsupplement;
 
-import com.beyond3.yyGang.CartOption;
+import com.beyond3.yyGang.cart.CartOption;
 import com.beyond3.yyGang.nutrientQuestion.NQuestion;
-import com.beyond3.yyGang.OrderOption;
+import com.beyond3.yyGang.order.OrderOption;
 import com.beyond3.yyGang.review.Review;
 import com.beyond3.yyGang.ageCategory.ACategory;
 import com.beyond3.yyGang.hfunction.HFunctionalCategory;

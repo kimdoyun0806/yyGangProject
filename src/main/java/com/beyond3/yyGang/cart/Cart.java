@@ -1,6 +1,5 @@
 package com.beyond3.yyGang.cart;
 
-import com.beyond3.yyGang.CartOption;
 import com.beyond3.yyGang.user.Users;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
