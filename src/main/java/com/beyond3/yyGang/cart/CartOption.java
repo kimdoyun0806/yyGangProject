@@ -21,7 +21,7 @@ public class CartOption {
     private Long cartOptionID;
 
     private int quantity; // 수량
-    //아아
+    
     private int price;  // 가격
 
     @ManyToOne(fetch = FetchType.LAZY)
