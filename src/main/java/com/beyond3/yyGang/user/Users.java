@@ -22,12 +22,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter // 테스트용 나중에 수정할 것
 @Table(name = "user")
 public class Users {
 
@@ -60,31 +62,35 @@ public class Users {
 
     private String address; // 주소
 
-    @OneToMany(mappedBy = "users")
-    private List<Review> reviews;
+//    @OneToMany(mappedBy = "users")
+//    private List<Review> reviews;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<QuestionBoard> questionBoards;
+//
+//    @OneToOne(mappedBy = "users")
+//    private PersonalHealth personalHealth;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<Order> orders;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<NQuestion> nQuestions;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<NAnswer> nAnswers;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<Board> boards;
+//
+//    @OneToMany(mappedBy = "users")
+//    private List<AgeGroup.Comments> comments;
 
-    @OneToMany(mappedBy = "users")
-    private List<QuestionBoard> questionBoards;
-
-    @OneToOne(mappedBy = "users")
-    private PersonalHealth personalHealth;
-
-    @OneToMany(mappedBy = "users")
-    private List<Order> orders;
-
-    @OneToMany(mappedBy = "users")
-    private List<NQuestion> nQuestions;
-
-    @OneToMany(mappedBy = "users")
-    private List<NAnswer> nAnswers;
-
-    @OneToMany(mappedBy = "users")
-    private List<Board> boards;
-
-    @OneToMany(mappedBy = "users")
-    private List<AgeGroup.Comments> comments;
-
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private Cart cart;
 
+    // 변경 할 부분 (Cart domain 부분 편의 메서드 생성을 위함)
+    public void setterCart(Cart cart) {
+        this.cart = cart;
+    }
 }

@@ -1,5 +1,6 @@
 package com.beyond3.yyGang.nsupplement;
 
+import com.beyond3.yyGang.cart.Cart;
 import com.beyond3.yyGang.cart.CartOption;
 import com.beyond3.yyGang.nutrientQuestion.NQuestion;
 import com.beyond3.yyGang.order.OrderOption;
@@ -12,13 +13,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
+@Builder
 @Table(name = "n_supplements")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class NSupplements {
 
     // 영양제
@@ -53,5 +58,16 @@ public class NSupplements {
 
     @OneToMany(mappedBy = "nSupplements")
     private List<CartOption> cartOptions;
+
+
+    // 생성 메소드
+    public static NSupplements createNSupplements(String productName, String caution, String brand, int price) {
+        return NSupplements.builder()
+                .productName(productName)
+                .caution(caution)
+                .brand(brand)
+                .price(price)
+                .build();
+    }
 
 }
